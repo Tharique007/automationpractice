@@ -68,40 +68,44 @@ public class TestClassLogin {
 		bc.Toclick(obln.SummerDressesTabHomePage());
 		bc.DropDown(obln.DropDownInSummerDressesPage(), "Product Name: A to Z");
 		Thread.sleep(1000);
-		//bc.ExplicitWait(obln.lodingImg());
-		//bc.ExplicitWaitForInvisibility(obln.lodingImg());
-		for (String jr : obln.ConvertionOfWebElementToString(obln.ListOfProductsNameInSummerDressesPageAfterAssending())) {
+		// bc.ExplicitWait(obln.lodingImg());
+		// bc.ExplicitWaitForInvisibility(obln.lodingImg());
+		for (String jr : obln
+				.ConvertionOfWebElementToString(obln.ListOfProductsNameInSummerDressesPageAfterAssending())) {
 			System.out.println(jr);
 			Assert.assertTrue(jr.compareTo(jr + 1) <= 0);
 		}
 	}
+
 	@Test
-	public void TestToCheckIfDiscountIsDisplayedForRedusedProducts(){
+	public void TestToCheckIfDiscountIsDisplayedForRedusedProducts() {
 		bc.MouseHower(obln.DressesTabHomePage());
 		bc.ExplicitWait(obln.SummerDressesTabHomePage());
 		bc.Toclick(obln.SummerDressesTabHomePage());
-		for(WebElement f : obln.ProductList()){
+		for (WebElement f : obln.ProductList()) {
 			bc.MouseHower(f);
-			if(bc.elementFound(obln.ListOfDiscountProduct(f))){
+			if (bc.elementFound(obln.ListOfDiscountProduct(f))) {
 				Assert.assertTrue(bc.elementFound(obln.ListOfDiscountPercntage(f)));
 			}
 		}
 	}
-	
+
 	@Test
-	public void TestToReadTheProductAndWriteTheRateinXl() throws IOException{
-		for(WebElement k : obln.ListOfProdustInTheHomePage()){
+	public void TestToReadTheProductAndWriteTheRateinXl() throws IOException {
+
+		for (WebElement k : obln.ListOfProdustInTheHomePage()) {
 			bc.MouseHower(k);
-			System.out.println(obln.ToReadFromTheXl(1, 0));
+			System.out.println(obln.ToReadFromTheXl(2, 0));
 			System.out.println(bc.ToGetText(obln.ProductNameInHomePage(k)));
 			System.out.println(bc.ToGetText(obln.RateOfTheProductsInHomePage(k)));
-			if(bc.ToGetText(obln.ProductNameInHomePage(k)).equalsIgnoreCase(obln.ToReadFromTheXl(1, 0))){
-				
-				Assert.assertTrue(obln.ToWriteTheTextToTheXl(1, 1, bc.ToGetText(obln.RateOfTheProductsInHomePage(k))));
+
+			if (bc.ToGetText(obln.ProductNameInHomePage(k)).equals(obln.ToReadFromTheXl(2, 0))) {
+
+				Assert.assertTrue(obln.ToWriteTheTextToTheXl(2, 1, bc.ToGetText(obln.RateOfTheProductsInHomePage(k))));
+
 			}
+
 		}
 	}
-	
-	
 
 }

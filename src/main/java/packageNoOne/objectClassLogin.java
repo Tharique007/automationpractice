@@ -147,11 +147,11 @@ public class objectClassLogin extends Baseclass {
 	}
 	
 	public WebElement ProductNameInHomePage(WebElement parent){
-		return parent.findElement(By.xpath("//ul[@id='homefeatured']/li//div/h5/a"));
+		return parent.findElement(By.xpath(".//a[@class='product-name']"));
 	}
 	
 	public WebElement RateOfTheProductsInHomePage(WebElement parent){
-		return parent.findElement(By.xpath("//ul[@id='homefeatured']/li//div[@class='right-block']/div[@itemprop='offers']/span[1]"));
+		return parent.findElement(By.xpath(".//span[@class='price product-price']"));
 	}
 	
 }
